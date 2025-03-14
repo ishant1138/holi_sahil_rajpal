@@ -18,10 +18,26 @@
         touch-action: manipulation;
       }
 
+      body {
+        background: radial-gradient(circle, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff);
+        background-size: 200% 200%;
+        animation: backgroundAnimation 10s infinite alternate;
+        overflow: hidden;
+      }
+
+      @keyframes backgroundAnimation {
+        0% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+
       .color-splash {
         animation: splashExpand 1.2s ease-out forwards;
         mix-blend-mode: screen;
-        z-index: 9999; /* Maximum z-index for color splashes */
+        z-index: 9999; 
         position: absolute;
       }
 
@@ -59,13 +75,39 @@
         max-width: 400px;
         margin: 0 auto;
       }
+
+      .holi-glow {
+        animation: glow 2s infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 60px #ff00de, 0 0 70px #ff00de;
+        }
+        to {
+          text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        }
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
     </style>
   </head>
   <body class="gradient-bg overflow-hidden">
     <div class="container mx-auto content-wrapper">
       <div class="text-center space-y-4 relative z-10">
         <div class="text-container">
-          <h1 class="text-4xl md:text-6xl font-bold text-white holi-glow mb-4">
+          <h1 class="text-4xl md:text-6xl font-bold text-white holi-glow mb-4 floating">
             HAPPY HOLI!
           </h1>
 
